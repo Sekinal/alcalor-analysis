@@ -1,14 +1,33 @@
 [project]
 name = "alcalor-analysis"
 version = "0.1.0"
-description = "Add your description here"
+description = "Deep analysis of 20+ years of Mexican news from Al Calor Político, Veracruz"
 readme = "README.md"
 requires-python = ">=3.12"
+authors = [
+    { name = "Your Name" }
+]
+keywords = ["mexico", "veracruz", "news", "analysis", "politics", "data-science"]
 dependencies = [
     "connectorx>=0.4.4",
     "duckdb>=1.4.3",
+    "kaleido>=1.2.0",
+    "nbformat>=5.10.4",
+    "numpy>=2.4.0",
+    "pandas>=2.3.3",
+    "plotly>=6.5.0",
     "polars>=1.36.1",
     "psycopg2-binary>=2.9.11",
     "pyarrow>=22.0.0",
     "python-dotenv>=1.2.1",
 ]
+
+[project.scripts]
+alcalor = "alcalor_analysis.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/alcalor_analysis"]
